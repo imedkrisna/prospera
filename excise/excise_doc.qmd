@@ -1,0 +1,84 @@
+---
+title: "excise report"
+author: "Krisna Gupta"
+format:
+  html:
+    code-fold: true
+  pdf:
+    mainfont: serif
+    documentclass: scrreprt
+    papersize: a4
+  docx: default
+---
+
+## Method
+
+For the aggregate traditional and electric, we use weighted average.
+
+## Data
+
+Some problems with the data:
+
+1. HJE and HTP only available for 2022 and 2023 June.
+
+## Elasticity
+
+Let a standard elasticity parameters
+
+$$
+Q_i=AP_i^{-\varepsilon}
+$$
+
+which can be approximately log-linearized
+
+$$
+q_i=a-\varepsilon p_i
+$$
+
+where a lowercase is the log version of its uppercase counterparts. We can, thus, econometrically estimated the above equation with a regression. Additionally, we follow the theory in having an income elasticity with GDP per capita as a proxy. We then estimate:
+
+$$
+q_{it}=a-\varepsilon p_{it} + \gamma y_{it} + \epsilon_{it}
+$$
+
+We assume an iid $\epsilon_{it}$ for now and uses own-price elasticity since we lack information on the price of electric cigs. The parameter $\varepsilon$ is the own-price elasticity of demand, which we expect to be negative, while $\gamma$ is the income elasticity of demand which is assumed to be positive.
+
+```{r}
+#| echo: false
+library(tidyverse)
+library(readxl)
+
+dat<-read_excel("cukai_use.xlsx",sheet="gab")
+dat2<-read_excel("cukai_use.xlsx",sheet="gabb")
+
+plot(dat$qtrad,dat$ptrad,xlab="log quantity",ylab="log price")
+plot(dat$revtrad,dat$ttrad,xlab="log revenue",ylab="tariff rate")
+
+```
+
+### Elasticity
+
+```{r}
+#| echo: false
+reg<-lm(qtrad~ptrad+y,data=dat)
+summary(reg)
+```
+
+### Revenue from price and from tax rate
+
+```{r}
+#| echo: false
+reg2<-lm(revtrad~ptrad+y,data=dat)
+summary(reg2)
+reg3<-lm(revtrad~ttrad+y,data=dat)
+summary(reg3)
+```
+
+```{r}
+#| echo: false
+library(vars)
+library(ARDL)
+dat3<-dat2 |> subset(select=c(revtrad,ttrad))
+wew<-ardl(data=dat3,revtrad~ttrad,order = c(1,0))
+```
+
