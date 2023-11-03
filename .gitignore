@@ -36,3 +36,5 @@
 *.out
 *.app
 .Rproj.user
+
+/.quarto/

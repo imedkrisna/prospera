@@ -1,0 +1,20 @@
+project:
+  type: default
+  output-dir: _output
+toc: false
+number-sections: true
+bibliography: references.bib
+execute: 
+  echo: false
+  
+format:
+  html:
+    mainfont: serif
+    theme: journal
+    html-math-method: katex
+  pdf:
+    documentclass: report
+    margin-left: 30mm
+    margin-right: 30mm
+  docx:
+    reference-doc: custom-reference-doc.docx
