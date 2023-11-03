@@ -3,7 +3,7 @@ project:
   output-dir: _output
 toc: false
 number-sections: true
-bibliography: references.bib
+bibliography: ref.bib
 execute: 
   echo: false
   

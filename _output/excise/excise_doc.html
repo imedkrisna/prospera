@@ -119,20 +119,135 @@ div.csl-indent {
 
 </header>
 
-<section id="data" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="data"><span class="header-section-number">1</span> Data</h2>
-<p>aowkaowkaowk</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="excise_doc_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid" width="672"></p>
-</div>
-<div class="cell-output-display">
-<p><img src="excise_doc_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid" width="672"></p>
-</div>
-</div>
+<section id="executive-summary" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="executive-summary">Executive summary</h2>
+<p>aowkoakwoakwo</p>
 </section>
-<section id="method" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="method"><span class="header-section-number">2</span> Method</h2>
+<section id="introduction" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1</span> Introduction</h2>
+<p>Prospera was tasked to help Directorate General of Customs &amp; Excise (DGCE) evaluating the impact of cigarette excise. More specifically, we are to estimate price elasticity of demand for cigarettes and how an increase in excise would matter.</p>
+<p>The study become even more important since the introduction of electric cigarettes. DGCE was starting to collect data (and excise) for e-cigarettes since 2020. It can be argued that e-cigs created an alternative to traditional cigarettes, which may</p>
+<p>We rely on <span class="citation" data-cites="prasetyo618">Prasetyo and Adrison (<a href="#ref-prasetyo618" role="doc-biblioref">2020</a>)</span> for estimation comparison and some insight.</p>
+</section>
+<section id="data" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="data"><span class="header-section-number">2</span> Data</h2>
+<p>This paper relies solely on data sourced by DGCE. The data contains information on both traditional and e-cigarettes, albeit on different details.</p>
+<p>The traditional cigarettes dataset contains information on annual production (in unit) and excise revenue for three kinds of traditional cigarettes, SKM, SKT and SPM. It also contain two types of regulated price data, HTP (retail price) and HJE (base price to calculate the excise liabilities), both quarterly.</p>
+<div id="fig-1" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-1-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-1-1.png" class="img-fluid figure-img" data-ref-parent="fig-1" width="672"></p>
+<figcaption class="figure-caption">(a) Production quantity (batang)</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-1-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-1-2.png" class="img-fluid figure-img" data-ref-parent="fig-1" width="672"></p>
+<figcaption class="figure-caption">(b) Prices (IDR/batang, includes excise)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-1-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-1-3.png" class="img-fluid figure-img" data-ref-parent="fig-1" width="672"></p>
+<figcaption class="figure-caption">(c) Excise revenue</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-1-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-1-4.png" class="img-fluid figure-img" data-ref-parent="fig-1" width="672"></p>
+<figcaption class="figure-caption">(d) advalorem-equivalent (%HJE)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Statistics of traditional cigarettes, 2018-2022</figcaption><p></p>
+</figure>
+</div>
+<p>The <a href="#fig-1">Figure&nbsp;1</a> shows us some shit. Satuan is fucking horrible.</p>
+<p>Meanwhile, e-cigarettes have a very interesting statistics, which presents problems with its use in an analysis, at least for the time being. Firstly, unlike traditional cigarettes which are all measured in “batang”, e-cigs’ measurement varies. For example, an EET-batang is measured by batang, EET-cair in mililitre, EET-cartridge in cart (2020) and pods (2021), and REL-padat in grams. Worse, some types discontinued in 2022 and replaced with entireley new types (see <a href="#tbl-1">Table&nbsp;1</a>).</p>
+<div id="tbl-1" class="anchored">
+<table class="table-striped table-hover table">
+<caption>Table&nbsp;1: E-cigs data structure</caption>
+<thead>
+<tr class="header">
+<th>Types</th>
+<th>measure</th>
+<th>year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>EET-batang</td>
+<td>batang</td>
+<td>2020-2021</td>
+</tr>
+<tr class="even">
+<td>EET-cair</td>
+<td>ml</td>
+<td>2020-2021</td>
+</tr>
+<tr class="odd">
+<td>EET-cartridge</td>
+<td>cart/pods</td>
+<td>2020-2021</td>
+</tr>
+<tr class="even">
+<td>REL-padat</td>
+<td>gr</td>
+<td>2022</td>
+</tr>
+<tr class="odd">
+<td>REL cair terbuka</td>
+<td>ml</td>
+<td>2022</td>
+</tr>
+<tr class="even">
+<td>REL cair tertutup</td>
+<td>ml</td>
+<td>2022</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The different measurement renders it hard to compare between types of electric cigarettes, and betweenn electric cigarettes and its traditional counterparts. DGCE must find a way to make a measure of “batang equivalent” of e-cigs so one can compare its elasticity with traditional cigarettes. Inconsistency of types also don’t help.</p>
+<div id="fig-2" class="cell quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-2-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-2-1.png" class="img-fluid figure-img" data-ref-parent="fig-2" width="672"></p>
+<figcaption class="figure-caption">(a) Production quantity (various)</figcaption>
+</figure>
+</div>
+</div>
+<div class="cell-output-display quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-2-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-2-2.png" class="img-fluid figure-img" data-ref-parent="fig-2" width="672"></p>
+<figcaption class="figure-caption">(b) Total excise revenue (billion IDR)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;2: Statistics of electroic cigarettes, 2018-2022</figcaption><p></p>
+</figure>
+</div>
+<p><a href="#fig-2">Figure&nbsp;2</a> shows us another shit. <a href="#fig-2-2">Figure&nbsp;2 (b)</a> is even shitter.</p>
+</section>
+<section id="method" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="method"><span class="header-section-number">3</span> Method</h2>
 <p>Let a standard elasticity parameters</p>
 <p><span class="math display">
 Q_i=AP_i^{-\varepsilon}
@@ -147,31 +262,79 @@ q_{it}=a-\varepsilon p_{it} + \gamma y_{it} + \epsilon_{it}
 </span></p>
 <p>We assume an iid <span class="math inline">\epsilon_{it}</span> for now and uses own-price elasticity since we lack information on the price of electric cigs. The parameter <span class="math inline">\varepsilon</span> is the own-price elasticity of demand, which we expect to be negative, while <span class="math inline">\gamma</span> is the income elasticity of demand which is assumed to be positive.</p>
 </section>
-<section id="results" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="results"><span class="header-section-number">3</span> Results</h2>
+<section id="results" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="results"><span class="header-section-number">4</span> Results</h2>
 <p>We use data that are made available by DGCE for us. Data contains production, revenue, base price (HJE) for tax purposes and retail price (HTE) for consumers for various types of traditional and electric cigarettes. Unfortunately, the availability of those data differs quite tremendously. Some are collected monthly, some others are quarterly and annually. Common denominator suggests us to conduct the analysis annually.</p>
 <p>Since we lack degree of freedom amid lack of data, it does make sense to group kinds of cigarettes into two: traditional and electric. We aggregate variables using weighted average using production data of each kind of cigarettes as the weight.</p>
-<section id="elasticities-traditional-cigarettes" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="elasticities-traditional-cigarettes"><span class="header-section-number">3.1</span> Elasticities: traditional cigarettes</h3>
+<section id="elasticities-traditional-cigarettes" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="elasticities-traditional-cigarettes"><span class="header-section-number">4.1</span> Elasticities: traditional cigarettes</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-1" class="anchored">
+<div id="fig-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-3-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;3: wkwkwkkw</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>kwkwk</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-2" class="anchored">
 
-<div class="tabwid"><style>.cl-7979a33c{}.cl-796ff440{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7974053a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-79741da4{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-79741dae{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-79741daf{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-79741db8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-79741db9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-7979a33c"><caption>Table&nbsp;1:  <p>Demand elasticity estimation for three kinds of traditional
-cigarettes</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-79741da4"><p class="cl-7974053a"><span class="cl-796ff440"> </span></p></th><th class="cl-79741da4"><p class="cl-7974053a"><span class="cl-796ff440">Traditional</span></p></th><th class="cl-79741da4"><p class="cl-7974053a"><span class="cl-796ff440">SKM</span></p></th><th class="cl-79741da4"><p class="cl-7974053a"><span class="cl-796ff440">SKT</span></p></th><th class="cl-79741da4"><p class="cl-7974053a"><span class="cl-796ff440">SPM</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(Intercept)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">25.750**</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">6.592+</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-9.257</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">4.212</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440"></span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(1.571)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(2.048)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(6.921)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(3.185)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">own-price</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-0.479</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-0.782+</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.873</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-1.216*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440"></span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(0.212)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(0.202)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(1.497)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(0.274)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">y</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.525</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.578</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.879</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.900</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440"></span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(0.311)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(0.369)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(1.403)</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">(0.546)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741daf"><p class="cl-7974053a"><span class="cl-796ff440">Num.Obs.</span></p></td><td class="cl-79741daf"><p class="cl-7974053a"><span class="cl-796ff440">5</span></p></td><td class="cl-79741daf"><p class="cl-7974053a"><span class="cl-796ff440">5</span></p></td><td class="cl-79741daf"><p class="cl-7974053a"><span class="cl-796ff440">5</span></p></td><td class="cl-79741daf"><p class="cl-7974053a"><span class="cl-796ff440">5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">R2</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.722</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.917</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.663</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.935</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">R2 Adj.</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.444</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.835</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.326</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">0.870</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">AIC</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-17.4</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-15.3</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-2.1</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-10.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">BIC</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-18.9</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-16.9</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-3.6</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">-12.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">Log.Lik.</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">12.692</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">11.657</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">5.039</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">9.473</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">F</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">2.597</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">11.089</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">1.967</span></p></td><td class="cl-79741dae"><p class="cl-7974053a"><span class="cl-796ff440">14.360</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-79741db8"><p class="cl-7974053a"><span class="cl-796ff440">RMSE</span></p></td><td class="cl-79741db8"><p class="cl-7974053a"><span class="cl-796ff440">0.02</span></p></td><td class="cl-79741db8"><p class="cl-7974053a"><span class="cl-796ff440">0.02</span></p></td><td class="cl-79741db8"><p class="cl-7974053a"><span class="cl-796ff440">0.09</span></p></td><td class="cl-79741db8"><p class="cl-7974053a"><span class="cl-796ff440">0.04</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="5" class="cl-79741db9"><p class="cl-7974053a"><span class="cl-796ff440">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
+<div class="tabwid"><style>.cl-109560a4{}.cl-108a3828{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-108ee9ae{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-108f0bbe{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-108f0bc8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-108f0bc9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-108f0bca{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-108f0bcb{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-109560a4"><caption>Table&nbsp;2:  <p>Demand elasticity estimation for three kinds of traditional
+cigarettes</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-108f0bbe"><p class="cl-108ee9ae"><span class="cl-108a3828"> </span></p></th><th class="cl-108f0bbe"><p class="cl-108ee9ae"><span class="cl-108a3828">Traditional</span></p></th><th class="cl-108f0bbe"><p class="cl-108ee9ae"><span class="cl-108a3828">SKM</span></p></th><th class="cl-108f0bbe"><p class="cl-108ee9ae"><span class="cl-108a3828">SKT</span></p></th><th class="cl-108f0bbe"><p class="cl-108ee9ae"><span class="cl-108a3828">SPM</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(Intercept)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">25.750**</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">6.592+</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-9.257</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">4.212</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828"></span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(1.571)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(2.048)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(6.921)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(3.185)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">own-price</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-0.479</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-0.782+</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.873</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-1.216*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828"></span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(0.212)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(0.202)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(1.497)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(0.274)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">y</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.525</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.578</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.879</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.900</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828"></span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(0.311)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(0.369)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(1.403)</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">(0.546)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc9"><p class="cl-108ee9ae"><span class="cl-108a3828">Num.Obs.</span></p></td><td class="cl-108f0bc9"><p class="cl-108ee9ae"><span class="cl-108a3828">5</span></p></td><td class="cl-108f0bc9"><p class="cl-108ee9ae"><span class="cl-108a3828">5</span></p></td><td class="cl-108f0bc9"><p class="cl-108ee9ae"><span class="cl-108a3828">5</span></p></td><td class="cl-108f0bc9"><p class="cl-108ee9ae"><span class="cl-108a3828">5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">R2</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.722</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.917</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.663</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.935</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">R2 Adj.</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.444</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.835</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.326</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">0.870</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">AIC</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-17.4</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-15.3</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-2.1</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-10.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">BIC</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-18.9</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-16.9</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-3.6</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">-12.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">Log.Lik.</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">12.692</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">11.657</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">5.039</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">9.473</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">F</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">2.597</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">11.089</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">1.967</span></p></td><td class="cl-108f0bc8"><p class="cl-108ee9ae"><span class="cl-108a3828">14.360</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-108f0bca"><p class="cl-108ee9ae"><span class="cl-108a3828">RMSE</span></p></td><td class="cl-108f0bca"><p class="cl-108ee9ae"><span class="cl-108a3828">0.02</span></p></td><td class="cl-108f0bca"><p class="cl-108ee9ae"><span class="cl-108a3828">0.02</span></p></td><td class="cl-108f0bca"><p class="cl-108ee9ae"><span class="cl-108a3828">0.09</span></p></td><td class="cl-108f0bca"><p class="cl-108ee9ae"><span class="cl-108a3828">0.04</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="5" class="cl-108f0bcb"><p class="cl-108ee9ae"><span class="cl-108a3828">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
 </div>
 </div>
 </div>
 <p>The elasticity of the traditional cigarettes is -0.4791002 which is the decrease in sales if prices go up by 1%. Meanwhile, 0.5248967is the income-effect, that is, how much more sales go up if GDP per capita rises by 1%.</p>
+<p>However, to preserve degree of freedom, we can estimate all kinds in one regression, albeit using dummy variables for different kinds of traditional cigarettes. This technique will force all non-dummy variables to be assumed paralel. That is, we will force the three kinds of cigarettes to have the same elasticity.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="tbl-3" class="anchored">
+
+<div class="tabwid"><style>.cl-10d3e680{}.cl-10c9aee0{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-10cd8100{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-10cd9a78{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-10cd9a82{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-10cd9a83{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-10cd9a8c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-10cd9a8d{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-10d3e680"><caption>Table&nbsp;3:  <p>Demand elasticity estimation,pooled with dummy</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-10cd9a78"><p class="cl-10cd8100"><span class="cl-10c9aee0"> </span></p></th><th class="cl-10cd9a78"><p class="cl-10cd8100"><span class="cl-10c9aee0">(1)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">(Intercept)</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">2.283</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0"></span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">(3.416)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">own-price</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">-1.099*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0"></span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">(0.367)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">y</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">1.383*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0"></span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">(0.606)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">kindskt</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">-1.500***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0"></span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">(0.153)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">kindspm</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">-2.985***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0"></span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">(0.073)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a83"><p class="cl-10cd8100"><span class="cl-10c9aee0">Num.Obs.</span></p></td><td class="cl-10cd9a83"><p class="cl-10cd8100"><span class="cl-10c9aee0">15</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">R2</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">0.994</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">R2 Adj.</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">0.992</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">AIC</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">-16.4</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">BIC</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">-12.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">Log.Lik.</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">14.207</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">F</span></p></td><td class="cl-10cd9a82"><p class="cl-10cd8100"><span class="cl-10c9aee0">431.007</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-10cd9a8c"><p class="cl-10cd8100"><span class="cl-10c9aee0">RMSE</span></p></td><td class="cl-10cd9a8c"><p class="cl-10cd8100"><span class="cl-10c9aee0">0.09</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-10cd9a8d"><p class="cl-10cd8100"><span class="cl-10c9aee0">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
+</div>
+</div>
+</div>
+<p>As we can see, this approach improves degree of freedom and provides a more robust standard error. The elasticity of the traditional cigarettes is -1.0994769 which is the decrease in sales if prices go up by 1%. Meanwhile, 1.3828417is the income-effect, that is, how much more sales go up if GDP per capita rises by 1%. However, judging from <a href="#fig-3">Figure&nbsp;3</a>, this estimation may be bias, especially since one of the type has a visual positive relationship.</p>
+<p>Now that we have various estimators, it may takes a bit of a guesswork here. We can use an aggregated estimators, or the pooled-dummy estimators. Our options are:</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>parameter</th>
+<th>aggregate value</th>
+<th>pooled-dummy value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>price-effect</td>
+<td>-0.4791002</td>
+<td>-1.0994769</td>
+</tr>
+<tr class="even">
+<td>income-effect</td>
+<td>0.5248967</td>
+<td>1.3828417</td>
+</tr>
+</tbody>
+</table>
 <p>We can then propose an elasticity equation as such:</p>
 <p><span class="math display">
 Q_{trad}=\frac{Y^{0.52}}{P_{trad}^{0.48}}\cdot e^{25.75}
 </span></p>
-<p>This parameter is actually make sense. The inelasticity of cigarette demands is quite well-known.</p>
-<p>We also examine if it matters by different kinds:</p>
+<p>or such:</p>
+<p><span class="math display">
+Q_{trad}=\frac{Y^{1.38}}{P_{trad}^{1.38}}\cdot e^{2.28}
+</span></p>
+<p>The first equation is actually make sense. The inelasticity of cigarette demands is quite well-known. Additionally, since the parameters are not statistically different from 0, it’s even more inelastic.</p>
+<p>The second equation gives us a better statistical power, albeit a possibility of bias. Additionally, an elasticity larger than 1 suggests a relatively elastic goods, which may not the mainstream characteristics of a cigarettes.</p>
+<p>In short, the results may be inconclusive, but the technique can be used by DGCE in the presence of better availability of data.</p>
 </section>
-<section id="tax-price-pass-through" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="tax-price-pass-through"><span class="header-section-number">3.2</span> Tax-price pass through</h3>
+<section id="tax-price-pass-through" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="tax-price-pass-through"><span class="header-section-number">4.2</span> Tax-price pass through</h3>
 <p>In the terms of excise, DGCE is interested in knowing how much their additional excise matters for the change in prices, which in turn matter in the change in quantities. We estimate how much prices changes when excise changes with the following specification:</p>
 <p><span class="math display">
 \ln P_t = \alpha+\beta \ln T_t + \varepsilon_{t}
@@ -179,239 +342,69 @@ Q_{trad}=\frac{Y^{0.52}}{P_{trad}^{0.48}}\cdot e^{25.75}
 <p>The result of that regression is as follows:</p>
 <div class="cell">
 <div class="cell-output-display">
-<div id="tbl-2" class="anchored">
+<div id="tbl-4" class="anchored">
 
-<div class="tabwid"><style>.cl-7a26fa46{}.cl-7a1d3416{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-7a20cb4e{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-7a20e264{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7a20e26e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7a20e26f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7a20e270{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-7a20e271{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-7a26fa46"><caption>Table&nbsp;2:  <p>Tax-to-price pass through for three kinds of traditional
-cigarettes</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-7a20e264"><p class="cl-7a20cb4e"><span class="cl-7a1d3416"> </span></p></th><th class="cl-7a20e264"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">Traditional</span></p></th><th class="cl-7a20e264"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">SKM</span></p></th><th class="cl-7a20e264"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">SKT</span></p></th><th class="cl-7a20e264"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">SPM</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(Intercept)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">1.940*</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">2.399**</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">4.299</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">2.651*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416"></span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(0.493)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(0.257)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(12.330)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(0.483)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">own-excise</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.879**</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.798***</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.532</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.759**</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416"></span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(0.078)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(0.039)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(2.248)</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">(0.074)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26f"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">Num.Obs.</span></p></td><td class="cl-7a20e26f"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">5</span></p></td><td class="cl-7a20e26f"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">5</span></p></td><td class="cl-7a20e26f"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">5</span></p></td><td class="cl-7a20e26f"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">R2</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.977</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.993</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.018</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.972</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">R2 Adj.</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.969</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.990</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-0.309</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.963</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">AIC</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-20.5</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-24.1</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-6.2</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-16.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">BIC</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-21.7</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-25.2</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-7.4</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">-17.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">Log.Lik.</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">13.267</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">15.031</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">6.118</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">11.246</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">F</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">127.688</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">407.922</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.056</span></p></td><td class="cl-7a20e26e"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">104.179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-7a20e270"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">RMSE</span></p></td><td class="cl-7a20e270"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.02</span></p></td><td class="cl-7a20e270"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.01</span></p></td><td class="cl-7a20e270"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.07</span></p></td><td class="cl-7a20e270"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">0.03</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="5" class="cl-7a20e271"><p class="cl-7a20cb4e"><span class="cl-7a1d3416">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
+<div class="tabwid"><style>.cl-117aa5c4{}.cl-1170ef16{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1174c186{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-1174d8ce{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1174d8d8{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1174d8d9{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1174d8e2{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1174d8e3{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-117aa5c4"><caption>Table&nbsp;4:  <p>Tax-to-price pass through for three kinds of traditional
+cigarettes</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-1174d8ce"><p class="cl-1174c186"><span class="cl-1170ef16"> </span></p></th><th class="cl-1174d8ce"><p class="cl-1174c186"><span class="cl-1170ef16">Traditional</span></p></th><th class="cl-1174d8ce"><p class="cl-1174c186"><span class="cl-1170ef16">SKM</span></p></th><th class="cl-1174d8ce"><p class="cl-1174c186"><span class="cl-1170ef16">SKT</span></p></th><th class="cl-1174d8ce"><p class="cl-1174c186"><span class="cl-1170ef16">SPM</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(Intercept)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">1.940*</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">2.399**</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">4.299</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">2.651*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16"></span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(0.493)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(0.257)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(12.330)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(0.483)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">own-excise</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.879**</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.798***</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.532</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.759**</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16"></span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(0.078)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(0.039)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(2.248)</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">(0.074)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d9"><p class="cl-1174c186"><span class="cl-1170ef16">Num.Obs.</span></p></td><td class="cl-1174d8d9"><p class="cl-1174c186"><span class="cl-1170ef16">5</span></p></td><td class="cl-1174d8d9"><p class="cl-1174c186"><span class="cl-1170ef16">5</span></p></td><td class="cl-1174d8d9"><p class="cl-1174c186"><span class="cl-1170ef16">5</span></p></td><td class="cl-1174d8d9"><p class="cl-1174c186"><span class="cl-1170ef16">5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">R2</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.977</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.993</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.018</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.972</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">R2 Adj.</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.969</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.990</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-0.309</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.963</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">AIC</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-20.5</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-24.1</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-6.2</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-16.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">BIC</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-21.7</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-25.2</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-7.4</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">-17.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">Log.Lik.</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">13.267</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">15.031</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">6.118</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">11.246</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">F</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">127.688</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">407.922</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">0.056</span></p></td><td class="cl-1174d8d8"><p class="cl-1174c186"><span class="cl-1170ef16">104.179</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1174d8e2"><p class="cl-1174c186"><span class="cl-1170ef16">RMSE</span></p></td><td class="cl-1174d8e2"><p class="cl-1174c186"><span class="cl-1170ef16">0.02</span></p></td><td class="cl-1174d8e2"><p class="cl-1174c186"><span class="cl-1170ef16">0.01</span></p></td><td class="cl-1174d8e2"><p class="cl-1174c186"><span class="cl-1170ef16">0.07</span></p></td><td class="cl-1174d8e2"><p class="cl-1174c186"><span class="cl-1170ef16">0.03</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="5" class="cl-1174d8e3"><p class="cl-1174c186"><span class="cl-1170ef16">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
+</div>
+</div>
+</div>
+<p>This estimation result tells us a very strong impact of taxation on prices. That is, for each 1% increase in excise, it passes 0.8792325 % to the consumer via increased price. This estimation is arguable higher than <span class="citation" data-cites="prasetyo618">Prasetyo and Adrison (<a href="#ref-prasetyo618" role="doc-biblioref">2020</a>)</span> which conducted a firm-level estimation.</p>
+<p>Likewise, we can improve the statistical power by pooling the three types with a quite restrictive assumption of a parralel marginal effect.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-4-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;4: wkwkwkkw</figcaption>
+</figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = ptrad ~ ctrad, data = dat)
+<div class="cell-output-display">
+<div id="tbl-5" class="anchored">
 
-Residuals:
-        1         2         3         4         5 
--0.017269  0.019518  0.007412 -0.023142  0.013481 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)  1.93985    0.49265   3.938  0.02918 * 
-ctrad        0.87923    0.07781  11.300  0.00149 **
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.022 on 3 degrees of freedom
-Multiple R-squared:  0.977, Adjusted R-squared:  0.9694 
-F-statistic: 127.7 on 1 and 3 DF,  p-value: 0.001486</code></pre>
+<div class="tabwid"><style>.cl-11f4ac3e{}.cl-11e9f640{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-11ee4c72{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-11ee64fa{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-11ee6504{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-11ee6505{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-11ee650e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-11ee650f{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-11f4ac3e"><caption>Table&nbsp;5:  <p>tax-price passthrough estimation,pooled with dummy</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-11ee64fa"><p class="cl-11ee4c72"><span class="cl-11e9f640"> </span></p></th><th class="cl-11ee64fa"><p class="cl-11ee4c72"><span class="cl-11e9f640">(1)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">(Intercept)</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">-0.463</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640"></span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">(1.234)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">own-excise</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.622***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640"></span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">(0.091)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">y</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.480*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640"></span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">(0.183)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">kindskt</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.267*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640"></span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">(0.097)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">kindspm</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.002</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640"></span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">(0.026)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6505"><p class="cl-11ee4c72"><span class="cl-11e9f640">Num.Obs.</span></p></td><td class="cl-11ee6505"><p class="cl-11ee4c72"><span class="cl-11e9f640">15</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">R2</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.974</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">R2 Adj.</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.964</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">AIC</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">-46.8</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">BIC</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">-42.5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">Log.Lik.</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">29.380</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">F</span></p></td><td class="cl-11ee6504"><p class="cl-11ee4c72"><span class="cl-11e9f640">94.809</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-11ee650e"><p class="cl-11ee4c72"><span class="cl-11e9f640">RMSE</span></p></td><td class="cl-11ee650e"><p class="cl-11ee4c72"><span class="cl-11e9f640">0.03</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-11ee650f"><p class="cl-11ee4c72"><span class="cl-11e9f640">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
 </div>
 </div>
-<p>This estimation result tells us a very strong impact of taxation on prices. That is, for each 1% increase in excise, it passes 0.8792325 % to the consumer via increased price. This estimation is arguable higher than <span class="citation" data-cites="Prasetyo618">Prasetyo and Adrison (<a href="#ref-Prasetyo618" role="doc-biblioref">2020</a>)</span> which conducted a firm-level estimation.</p>
-<p>We then examine whether it make sense to estimate between different types of traditional cigarettes:</p>
-<ul>
-<li>SKM</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = pskm ~ cskm, data = trad)
-
-Residuals:
-        1         2         3         4         5 
--0.017864  0.015538  0.008314 -0.008875  0.002886 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  2.39938    0.25690    9.34 0.002599 ** 
-cskm         0.79760    0.03949   20.20 0.000265 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.01546 on 3 degrees of freedom
-Multiple R-squared:  0.9927,    Adjusted R-squared:  0.9903 
-F-statistic: 407.9 on 1 and 3 DF,  p-value: 0.0002653</code></pre>
 </div>
-</div>
-<ul>
-<li>SKT</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = pskt ~ cskt, data = trad)
-
-Residuals:
-       1        2        3        4        5 
--0.07304 -0.01295 -0.01731 -0.03258  0.13589 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)   4.2994    12.3304   0.349    0.750
-cskt          0.5324     2.2482   0.237    0.828
-
-Residual standard error: 0.09188 on 3 degrees of freedom
-Multiple R-squared:  0.01835,   Adjusted R-squared:  -0.3089 
-F-statistic: 0.05607 on 1 and 3 DF,  p-value: 0.8281</code></pre>
-</div>
-</div>
-<ul>
-<li>SPM</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = pspm ~ cspm, data = trad)
-
-Residuals:
-        1         2         3         4         5 
--0.010214  0.007932  0.025630 -0.044546  0.021199 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)   
-(Intercept)   2.6513     0.4830    5.49   0.0119 * 
-cspm          0.7594     0.0744   10.21   0.0020 **
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.03295 on 3 degrees of freedom
-Multiple R-squared:  0.972, Adjusted R-squared:  0.9627 
-F-statistic: 104.2 on 1 and 3 DF,  p-value: 0.002004</code></pre>
-</div>
-</div>
-<p>Results from each</p>
+<p>This estimation result tells us a very strong impact of taxation on prices. That is, for each 1% increase in excise, it passes 0.6219979 % to the consumer via increased price. This estimation is arguable higher than <span class="citation" data-cites="prasetyo618">Prasetyo and Adrison (<a href="#ref-prasetyo618" role="doc-biblioref">2020</a>)</span> which conducted a firm-level estimation.</p>
 </section>
-<section id="revenue-from-price-and-from-tax-rate" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="revenue-from-price-and-from-tax-rate"><span class="header-section-number">3.3</span> Revenue from price and from tax rate</h3>
+<section id="revenue-from-price-and-from-tax-rate" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="revenue-from-price-and-from-tax-rate"><span class="header-section-number">4.3</span> Revenue from price and from tax rate</h3>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = revtrad ~ ctrad + y, data = dat)
+<div class="cell-output-display">
+<div id="tbl-6" class="anchored">
 
-Residuals:
-         1          2          3          4          5 
--0.0228236  0.0147477  0.0004673  0.0247555 -0.0171469 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept)  -2.5429     1.6020  -1.587   0.2534  
-ctrad         0.5917     0.1684   3.515   0.0723 .
-y             0.4830     0.2778   1.739   0.2242  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.02868 on 2 degrees of freedom
-Multiple R-squared:  0.9719,    Adjusted R-squared:  0.9438 
-F-statistic: 34.59 on 2 and 2 DF,  p-value: 0.0281</code></pre>
+<div class="tabwid"><style>.cl-129f1660{}.cl-1294e082{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1299133c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-12992c46{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-12992c50{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-12992c5a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-12992c5b{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-12992c5c{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-129f1660"><caption>Table&nbsp;6:  <p>tax elasticity of revenue for three kinds of traditional
+cigarettes</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-12992c46"><p class="cl-1299133c"><span class="cl-1294e082"> </span></p></th><th class="cl-12992c46"><p class="cl-1299133c"><span class="cl-1294e082">Traditional</span></p></th><th class="cl-12992c46"><p class="cl-1299133c"><span class="cl-1294e082">SKM</span></p></th><th class="cl-12992c46"><p class="cl-1299133c"><span class="cl-1294e082">SKT</span></p></th><th class="cl-12992c46"><p class="cl-1299133c"><span class="cl-1294e082">SPM</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(Intercept)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-2.543</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-2.072</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-45.522+</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-6.682*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082"></span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(1.602)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(1.946)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(11.411)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(1.234)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">own-excise</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.592+</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.375</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">5.914+</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.002</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082"></span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.168)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.135)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(1.781)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.073)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">y</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.483</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.565</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">1.923*</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">1.049*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082"></span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.278)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.309)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.425)</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">(0.189)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c5a"><p class="cl-1299133c"><span class="cl-1294e082">Num.Obs.</span></p></td><td class="cl-12992c5a"><p class="cl-1299133c"><span class="cl-1294e082">5</span></p></td><td class="cl-12992c5a"><p class="cl-1299133c"><span class="cl-1294e082">5</span></p></td><td class="cl-12992c5a"><p class="cl-1299133c"><span class="cl-1294e082">5</span></p></td><td class="cl-12992c5a"><p class="cl-1299133c"><span class="cl-1294e082">5</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">R2</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.972</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.964</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.924</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.977</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">R2 Adj.</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.944</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.927</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.848</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">0.954</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">AIC</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-17.9</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-16.9</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-9.1</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-21.7</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">BIC</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-19.5</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-18.5</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-10.7</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">-23.3</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">Log.Lik.</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">12.953</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">12.447</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">8.572</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">14.870</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">F</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">34.587</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">26.577</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">12.186</span></p></td><td class="cl-12992c50"><p class="cl-1299133c"><span class="cl-1294e082">42.580</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-12992c5b"><p class="cl-1299133c"><span class="cl-1294e082">RMSE</span></p></td><td class="cl-12992c5b"><p class="cl-1299133c"><span class="cl-1294e082">0.02</span></p></td><td class="cl-12992c5b"><p class="cl-1299133c"><span class="cl-1294e082">0.02</span></p></td><td class="cl-12992c5b"><p class="cl-1299133c"><span class="cl-1294e082">0.04</span></p></td><td class="cl-12992c5b"><p class="cl-1299133c"><span class="cl-1294e082">0.01</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="5" class="cl-12992c5c"><p class="cl-1299133c"><span class="cl-1294e082">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
 </div>
 </div>
-<ul>
-<li>SKM</li>
-</ul>
+</div>
+<p>Same. lol.</p>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = rskm ~ cskm + y, data = trad)
-
-Residuals:
-        1         2         3         4         5 
--0.020994  0.012364 -0.003082  0.031767 -0.020055 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)  -2.0717     1.9461  -1.065    0.399
-cskm          0.3746     0.1351   2.772    0.109
-y             0.5646     0.3088   1.828    0.209
-
-Residual standard error: 0.03174 on 2 degrees of freedom
-Multiple R-squared:  0.9637,    Adjusted R-squared:  0.9275 
-F-statistic: 26.58 on 2 and 2 DF,  p-value: 0.03626</code></pre>
+<div class="cell-output-display">
+<div id="fig-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="excise_doc_files/figure-html/fig-5-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;5: wkwkwkkw</figcaption>
+</figure>
 </div>
-</div>
-<ul>
-<li>SKT</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = rskt ~ cskt + y, data = trad)
-
-Residuals:
-        1         2         3         4         5 
--0.037256 -0.006483  0.002474  0.080659 -0.039394 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -45.5216    11.4108  -3.989   0.0575 .
-cskt          5.9142     1.7805   3.322   0.0799 .
-y             1.9232     0.4248   4.527   0.0455 *
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.0689 on 2 degrees of freedom
-Multiple R-squared:  0.9242,    Adjusted R-squared:  0.8483 
-F-statistic: 12.19 on 2 and 2 DF,  p-value: 0.07584</code></pre>
-</div>
-</div>
-<ul>
-<li>SPM</li>
-</ul>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = rspm ~ cspm + y, data = trad)
-
-Residuals:
-        1         2         3         4         5 
--0.020414  0.015209  0.008042  0.003455 -0.006293 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)  
-(Intercept) -6.68233    1.23425  -5.414   0.0325 *
-cspm         0.00190    0.07323   0.026   0.9817  
-y            1.04918    0.18933   5.542   0.0311 *
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.01955 on 2 degrees of freedom
-Multiple R-squared:  0.9771,    Adjusted R-squared:  0.9541 
-F-statistic: 42.58 on 2 and 2 DF,  p-value: 0.02295</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = qskm ~ pskm + pspm + pskt, data = trad)
+<div class="cell-output-display">
+<div id="tbl-7" class="anchored">
 
-Residuals:
-        1         2         3         4         5 
--0.025048  0.017589  0.014311  0.002962 -0.009814 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)
-(Intercept)   4.0424     3.1306   1.291    0.420
-pskm          2.5689     1.5995   1.606    0.355
-pspm         -3.1810     1.6122  -1.973    0.299
-pskt          0.8390     0.5433   1.544    0.366
-
-Residual standard error: 0.03531 on 1 degrees of freedom
-Multiple R-squared:  0.9627,    Adjusted R-squared:  0.8508 
-F-statistic:   8.6 on 3 and 1 DF,  p-value: 0.2444</code></pre>
+<div class="tabwid"><style>.cl-1317a67a{}.cl-130b9934{font-family:'Arial';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-13101e5a{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-13104650{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 1.5pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1310465a{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-13104664{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 1pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1310466e{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 1.5pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-13104678{width:0.75in;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table data-quarto-disable-processing="true" class="cl-1317a67a"><caption>Table&nbsp;7:  <p>tax-price passthrough estimation,pooled with dummy</p> </caption><thead><tr style="overflow-wrap:break-word;"><th class="cl-13104650"><p class="cl-13101e5a"><span class="cl-130b9934"> </span></p></th><th class="cl-13104650"><p class="cl-13101e5a"><span class="cl-130b9934">(1)</span></p></th></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">(Intercept)</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">15.632***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934"></span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">(2.533)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">own-excise</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">0.079</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934"></span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">(0.188)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">y</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">1.157*</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934"></span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">(0.375)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">kindskt</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">-2.035***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934"></span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">(0.199)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">kindspm</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">-2.990***</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934"></span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">(0.054)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-13104664"><p class="cl-13101e5a"><span class="cl-130b9934">Num.Obs.</span></p></td><td class="cl-13104664"><p class="cl-13101e5a"><span class="cl-130b9934">15</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">R2</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">0.997</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">R2 Adj.</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">0.996</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">AIC</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">-25.2</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">BIC</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">-20.9</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">Log.Lik.</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">18.591</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">F</span></p></td><td class="cl-1310465a"><p class="cl-13101e5a"><span class="cl-130b9934">807.620</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1310466e"><p class="cl-13101e5a"><span class="cl-130b9934">RMSE</span></p></td><td class="cl-1310466e"><p class="cl-13101e5a"><span class="cl-130b9934">0.07</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td colspan="2" class="cl-13104678"><p class="cl-13101e5a"><span class="cl-130b9934">+ p &lt; 0.1, * p &lt; 0.05, ** p &lt; 0.01, *** p &lt; 0.001</span></p></td></tr></tfoot></table></div>
+</div>
 </div>
 </div>
 </section>
 </section>
-<section id="electric" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="electric"><span class="header-section-number">4</span> Electric</h2>
+<section id="electric" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="electric"><span class="header-section-number">5</span> Electric</h2>
 <p>Unfortunately, analyzing electric cigarettes is heavily constrained by the data. Since 2022 is the only year with a complete observation of production, revenue and prices, we cannot use econometric methods. We can, however, construct a direct derivation of elasticity from a simple algebra.</p>
 <p>Assume a demand function as follows:</p>
 <p><span class="math display">
@@ -422,14 +415,19 @@ Q_{el}=AP_{el}^{\nu}
 \ln Q_{el} = \nu \ln P_{el}+\ln A
 </span></p>
 <p>While this structure allows for an estimation of <span class="math inline">\nu</span> and <span class="math inline">A</span> as the intercept, parameterizing both are impossible unless we have more than 1 data point at the very least<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>One of a way to estimate <span class="math inline">\nu</span> is to use <span class="math inline">A</span> from the traditional cigarettes estimation.</p>
+<p>One of a way to estimate <span class="math inline">\nu</span> is to use <span class="math inline">A</span> from the traditional cigarettes estimation. We use the aggregated traditional cigarettes (since this is also aggregated) which is <span class="math inline">A=25.75</span></p>
 <p>which gives us:</p>
 <p><span class="math display">
-\nu= -\frac{\ln Q_{el}}{\ln P_{el}+\ln A}
+\ln Q_{el} = \nu \ln P_{el}+ 25.75
 </span></p>
+<p>In this form, it is trivial to get</p>
+<p><span class="math display">
+\nu= \frac{\ln Q_{el}-25.75}{\ln P_{el}}
+</span></p>
+<p>We then input the data for <span class="math inline">\ln Q_{el}</span> and <span class="math inline">\ln P_{el}</span> which will gives us the parameter <span class="math inline">\nu=-0.54</span>.</p>
 </section>
-<section id="limitation-suggestions" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="limitation-suggestions"><span class="header-section-number">5</span> Limitation &amp; Suggestions</h2>
+<section id="limitation-suggestions" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="limitation-suggestions"><span class="header-section-number">6</span> Limitation &amp; Suggestions</h2>
 <p>The main limitation is data. With the lack of annual data, we are limited to how much degree of freedom we can utilise. That is, we are limited to how much variable we can use in a single regression. Among the limitations are:</p>
 <ul>
 <li><p>traditional cigarettes:</p>
@@ -453,12 +451,15 @@ Q_{el}=AP_{el}^{\nu}
 <li><p>We propose a structure which can be extremely useful for future usage.</p></li>
 </ul>
 <p>For further analysis, we can recommend the use of other datasets, such as Susenas or other household surveys. Unfortunately, there is no going around the lack of data. Even if we can utilise other data, we will still need HTP:HJE and annual revenue from the DGCE.</p>
+</section>
+<section id="references" class="level2 unnumbered">
+
 
 </section>
 
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-Prasetyo618" class="csl-entry" role="listitem">
+<div id="ref-prasetyo618" class="csl-entry" role="listitem">
 Prasetyo, Bagus Wahyu, and Vid Adrison. 2020. <span>“Cigarette Prices in a Complex Cigarette Tax System: Empirical Evidence from Indonesia.”</span> <em>Tobacco Control</em> 29 (6): 618–23. <a href="https://doi.org/10.1136/tobaccocontrol-2018-054872">https://doi.org/10.1136/tobaccocontrol-2018-054872</a>.
 </div>
 </div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
