@@ -162,7 +162,7 @@ elviz |>
 
 Here we describe our method in getting elasticities, tax-price pass-through and marginal revenue per marginal tax increase, given the data limitation.
 
-Let a standard elasticity parameters
+Let a standard downward-sloping demand function:
 
 $$
 Q_i=AP_i^{-\varepsilon}
@@ -177,7 +177,7 @@ $$
 where a lowercase is the log version of its uppercase counterparts. We can, thus, econometrically estimated the above equation with a regression. Additionally, we follow the theory in having an income elasticity with GDP per capita as a proxy. We then estimate:
 
 $$
-q_{i}=a-\varepsilon p_{i} + \gamma y_{i} + \epsilon_{i}
+q_{i}=a-\varepsilon p_{i} + \gamma y_{i} \pm \epsilon_{i}
 $$
 
 We assume an iid $\epsilon_{it}$ for now and uses own-price elasticity since we lack information on the price of electric cigs. The parameter $\varepsilon$ is the own-price elasticity of demand, which we expect to be negative, while $\gamma$ is the income elasticity of demand which is assumed to be positive.
