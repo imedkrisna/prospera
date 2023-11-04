@@ -5,6 +5,7 @@ institute: "Prospera"
 date: last-modified
 date-format: long
 bibliography: ref.bib
+abstract: "This report presents our analysis on mainly estimating elasticity and forecasting future excise and revenue for DGCE. We find that the elasticity of demand to be vary between -0.5 to -1.1. We also find a strong case for tax-price pass-through for SKM and SPM tobacco type. Our findings corroborates most literature on the Indonesian tobacco use. Unfortunately data limits how much and how robust the analysis can get. In particular, we find very little value of analysis on electric cigarettes, which maindly due to only one year datapoint available for study."
 format:
   html:
     code-fold: true
@@ -15,23 +16,59 @@ format:
     toc: false
 ---
 
-## Executive summary {.unnumbered}
+## Introduction {#sec-introduction}
 
-aowkoakwoakwo
+Nicotine is addictive and harmful. Controlling tobacco use via taxation requires understanding of demand elasticity of the good [@RN].   Prospera was tasked to help Directorate General of Customs & Excise (DGCE) evaluating the impact of cigarette excise. More specifically, we are to estimate price elasticity of demand for cigarettes and how an increase in excise would matter.
 
-## Introduction
+The study become even more important since the introduction of electric cigarettes. It can be argued that e-cigs create a substitute to the cigarettes, and may be an introduction to more traditional tobacco cigarettes [@binns]. DGCE was starting to collect data (and excise) for e-cigarettes since 2020.
 
-Prospera was tasked to help Directorate General of Customs & Excise (DGCE) evaluating the impact of cigarette excise. More specifically, we are to estimate price elasticity of demand for cigarettes and how an increase in excise would matter.
+This report plans to find a good forecasting for the next demand for excise ribbon. To do that, we need to answer few questions:
 
-The study become even more important since the introduction of electric cigarettes. DGCE was starting to collect data (and excise) for e-cigarettes since 2020. It can be argued that e-cigs created an alternative to traditional cigarettes, which may 
+1. How much is the price elasticity of demand of both traditional cigarettes and electric cigarettes?
 
-We rely on @prasetyo618 for estimation comparison and some insight.
+2. How much changes in taxes affects prices? That is, if DGCE wants to reduce tobacco consumptions through taxes, it must know how firms behave in regards to pricing.
+
+3. How much revenue to be gained from changing the tax rate?
+
+We must also answer this following question: How much is the cross-price substitution between traditional and electric cigarettes?
+
+While all of these questions are extremely important, we find the answer to not be straight-forward. Few literatures actually looking at this. But the main problem is the lack of good quality data in answering those questions, particularly on e-cigarettes.
+
+## Literatures
+
+We rely on three papers for our desk investigation which is summarized in @tbl-1.
+
+@RN investigates whether smokers in general are myopic or rational addicts. They utilise 2SLS and GMM along with IFLS data with 1783 total observations to conduct their study. According to this consumer-side study, the price elasticity of demand for traditional tobacco is around -0.38 to -0.57. They also controls for income with total expenditure as the proxy.
+
+@nach look at the impact of cigarette prices to household nutrient intake. Collecting various household surveys in 2014, they are able to observe a cross-section 285,400 households. They use unit value as the price which is sourced from PODES, one of the household survey. While their goal is not to look at elasticity, they find that 1% increase in cigarette prices lead to an increase of budget share for cigarettes by 0.0737 percentage point.
+
+@prasetyo618 utilise transactional data on the firm level, 2005-2017, with total 32,711 observations (around 2,500 firms per year). They get the data from DGCE. They look at the tax-price pass through, which is the impact of changes in tax to the firms' pricing strategy. They also examine the pass-through effect on three types of traditional cigarettes, namely SKT, SKM and SPM. They find that an increase of 1% of tax rate leads to an increase of prices by around 0.15, 0.36 and 0.77 for SKT, SKM and SPM respectively.
+
+| paper  | finding  | data | obs year | N |
+|--------|--------|------|------|-----|
+| @RN  |  elasticity (-0.38 to -0.57)  | IFLS | 1993,1997,2000 | 1783 |
+| @nach   | budget share   | Susenas, PODES, RISKESDAS  | 2014 | 285,400 |
+| @prasetyo618 | tax-price passtrough   | firm transactions from DGCE | 2005-2017 | 32,711 |
+
+
+: literature summary {#tbl-1 .striped .hover}
+
+For objectives, this report bear similarity with @RN the most, albeit it is indeed important to see a tax-price pass-through a la @prasetyo618. We do have a production data of different types of cigarettes, but our data lack firm level richness as @prasetyo618[^2]. Generally we do not look at the question posed by @nach, but This is still an important question to adhere by DGCE. The reason is because using excise as an instrument to reduce smoking may lead to a reduction of a household's nutrient intake.
+
+@prasetyo618 offers various insight to the cigarettes market in Indonesia. The industry is highly oligopolistic and often offers low price of cigarettes to avoid paying progressive exicse. This leads to higher number of smokers[^3]. Low potential revenue,thus may be outweighed by the higher cost of treatment of tobacco-related diseases.
+
+On the last note, none of those are looking at electric cigarettes.
+
+[^2]: interestingly, they also sourced the data from DGCE.
+[^3]: adult male smokers increase in share from 60.6% in 2000 to 76.1%
 
 ## Data
 
-This paper relies solely on data sourced by DGCE. The data contains information on both traditional and e-cigarettes, albeit on different details.
+This paper relies solely on data sourced by DGCE. The data contains information on both traditional and e-cigarettes, albeit on different details. We will first discuss about the traditional cigarettes and then proceed to e-cigarettes.
 
-The traditional cigarettes dataset contains information on annual production (in unit) and excise revenue for three kinds of traditional cigarettes, SKM, SKT and SPM. It also contain two types of regulated price data, HTP (retail price) and HJE (base price to calculate the excise liabilities), both quarterly.
+### Traditional cigarette data
+
+The traditional cigarettes dataset contains information on annual production (in unit) and excise revenue for three kinds of traditional cigarettes, SKM, SKT and SPM. It also contain two types of regulated price data, HTP (retail price) and HJE (base price to calculate the excise liabilities), both quarterly. The data is available from 2018-2022, 2023 data was available for the first and second quarter only.
 
 ```{r}
 #| echo: false
@@ -55,8 +92,6 @@ tradviz$year<-as.Date(as.character(tradviz$year),format="%Y%m%d")
 #elviz$year<-as.Date(as.character(elviz$year),format="%Y%m%d")
 ```
 
-
-
 ```{r}
 #| label: fig-1
 #| fig-cap: Statistics of traditional cigarettes, 2018-2022
@@ -67,18 +102,30 @@ tradviz$year<-as.Date(as.character(tradviz$year),format="%Y%m%d")
 #|   - advalorem-equivalent (%HJE)
 #| layout-ncol: 2
 tradviz |>
-  ggplot(aes(x=year,y=qtrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)
+  ggplot(aes(x=year,y=qtrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
+  labs(y="Quantity (billion batang)")
 tradviz |>
-  ggplot(aes(x=year,y=ptrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)
+  ggplot(aes(x=year,y=ptrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
+  labs(y="Prices (IDR/batang)")
 tradviz |>
-  ggplot(aes(x=year,y=rtrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)
+  ggplot(aes(x=year,y=rtrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
+  labs(y="Revenue (Trillion IDR)")
 tradviz |>
-  ggplot(aes(x=year,y=ttrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)
+  ggplot(aes(x=year,y=ttrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
+  labs(y="advalorem equivalent (%)")
 ```
 
-The @fig-1 shows us some shit. Satuan is fucking horrible.
+The @fig-1 shows us some statistics on the data that we have on the traditional cigarettes. SKM and SPM are both machine-made and are associated with big firms, while SKT is handmade, often associated with small firms. SKM is considered Indonesian special and is highly popular among smokers and the largest source of excise revenue (see @fig1-1 and fig1-3).
 
-Meanwhile, e-cigarettes have a very interesting statistics, which presents problems with its use in an analysis, at least for the time being. Firstly, unlike traditional cigarettes which are all measured in "batang", e-cigs' measurement varies. For example, an EET-batang is measured by batang, EET-cair in mililitre, EET-cartridge in cart (2020) and pods (2021), and REL-padat in grams. Worse, some types discontinued in 2022 and replaced with entireley new types (see @tbl-1).
+@fig1-2 shows the price of each types which are increasing thanks to regulations. SKM and SPM are more expensive than SKT, partly due to a higher tax rate imposed on the machine-made cigarettes (see @fig1-4). This excise structure is design to protect small firms. The tax rate shown in @fig1-4 corroborates @prasetyo618 and is considered too low[^4].
+
+[^4]: WHO suggests any tax rate below 70% is deemed too small to reduce smoking [@prasetyo618]
+
+### electronic cigarette data
+
+Data on e-cigarette has a very low observation, which presents problems with its use in an analysis, at least for the time being. While the production data consists of monthly production and revenue from 2020-2022, the regulated prices (HJE and HTP) are only available for June 2022 and June 2023. This means any analysis involving price can only be conducted for 1 year of observation which is not enough for any econometric technique.
+
+e-cigarette data also have various other quirks. Firstly, unlike traditional cigarettes which are all measured in "batang", e-cigs' measurement varies. For example, an EET-batang is measured by batang, EET-cair in mililitre, EET-cartridge in cart (2020) and pods (2021), and REL-padat in grams. Worse, some types discontinued in 2022 and replaced with entireley new types (see @tbl-2).
 
 | Types  | measure  | year |
 |--------|--------|------|
@@ -89,11 +136,9 @@ Meanwhile, e-cigarettes have a very interesting statistics, which presents probl
 | REL cair terbuka | ml   | 2022 |
 | REL cair tertutup | ml   | 2022 |
 
-: E-cigs data structure {#tbl-1 .striped .hover}
+: E-cigs data structure {#tbl-2 .striped .hover}
 
-The different measurement renders it hard to compare between types of electric cigarettes, and betweenn electric cigarettes and its traditional counterparts. DGCE must find a way to make a measure of "batang equivalent" of e-cigs so one can compare its elasticity with traditional cigarettes. Inconsistency of types also don't help.
-
-
+The different measurement renders it hard to compare between types of electric cigarettes, and betweenn electric cigarettes and its traditional counterparts. DGCE must find a way to make a measure of "batang equivalent" of e-cigs so one can compare its elasticity with traditional cigarettes. Inconsistency of types between years also don't help with the analysis.
 
 ```{r}
 #| label: fig-2
@@ -104,18 +149,17 @@ The different measurement renders it hard to compare between types of electric c
 #| layout-ncol: 2
 elviz |>
   ggplot(aes(x=year,y=qtrad,color=kind,linetype=kind,shape=kind))+geom_line(linewidth=1.1)+
-  geom_point(size=1.1)+ scale_x_continuous(breaks=c(2020,2021,2022),labels=c("2020", "2021", "2022"))
+  geom_point(size=1.1)+ scale_x_continuous(breaks=c(2020,2021,2022),labels=c("2020", "2021", "2022"))+labs(y="Production (varies)")
 elviz |>
   ggplot(aes(x=year,y=rtrad,color=kind,linetype=kind,shape=kind))+geom_line(linewidth=1.1)+
-  geom_point(size=2)+scale_x_continuous(breaks=c(2020,2021,2022),labels=c("2020", "2021", "2022"))
+  geom_point(size=2)+scale_x_continuous(breaks=c(2020,2021,2022),labels=c("2020", "2021", "2022"))+labs(y="Revenue (trillion IDR)")
 ```
 
-@fig-2 shows us another shit. @fig-2-2 is even shitter.
-
-
-
+@fig-2 shows us production quantity and total excise revenue. It is unclear if the aggregation of production can be justified, but since it actually measures how many excise ribbon produced, it may still be consistent. Still, we would need to know how much ml of REL equivalent to 1 batang of traditional cigarettes to really know how much one can substitute one with the other.
 
 ## Method
+
+Here we describe our method in getting elasticities, tax-price pass-through and marginal revenue per marginal tax increase, given the data limitation.
 
 Let a standard elasticity parameters
 
@@ -132,34 +176,40 @@ $$
 where a lowercase is the log version of its uppercase counterparts. We can, thus, econometrically estimated the above equation with a regression. Additionally, we follow the theory in having an income elasticity with GDP per capita as a proxy. We then estimate:
 
 $$
-q_{it}=a-\varepsilon p_{it} + \gamma y_{it} + \epsilon_{it}
+q_{i}=a-\varepsilon p_{i} + \gamma y_{i} + \epsilon_{i}
 $$
 
 We assume an iid $\epsilon_{it}$ for now and uses own-price elasticity since we lack information on the price of electric cigs. The parameter $\varepsilon$ is the own-price elasticity of demand, which we expect to be negative, while $\gamma$ is the income elasticity of demand which is assumed to be positive.
+
+We have index $i \in {\text{traditional},\text{SKM},\text{SKT},\text{SPM}}$. That is, we will regress on the level of each type of traditional cigarettes. But we will also regress on aggregate. That is, we regress total demand of traditional cigarettes $Q_{traditional}=\sum_i Q_i$ against a weighted average prices:
+
+$$
+P_{traditional}=\frac{\sum_i P_i Qi}{\sum_i Q_i} \ \ for \ i \in \{SKM,SPM,SKT\}
+$$
 
 ## Results
 
 We use data that are made available by DGCE for us. Data contains production, revenue, base price (HJE) for tax purposes and retail price (HTE) for consumers for various types of traditional and electric cigarettes. Unfortunately, the availability of those data differs quite tremendously. Some are collected monthly, some others are quarterly and annually. Common denominator suggests us to conduct the analysis annually.
 
-Since we lack degree of freedom amid lack of data, it does make sense to group kinds of cigarettes into two: traditional and electric. We aggregate variables using weighted average using production data of each kind of cigarettes as the weight.
-
 ### Elasticities: traditional cigarettes
+
+First, we plot a cross-section of our $X$ and $Y$ variable, which can be seen in @fig-3.
 
 ```{r}
 #| label: fig-3
-#| fig-cap: wkwkwkkw
+#| fig-cap: Quantity-price cross-sectional plot of traditional cigarettes.
 #| warning: false
 #| message: false
 ggplot(data=trad2,aes(y=qtrad,x=ptrad,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log price",y="log quantity")
 ```
 
+As we can see from the @fig-3, SKT has the lowest price level compared to the other two. Quantity-wise, SPM is the lowest. SKM and SPM may have the same gradient, but SKT is definitely the other way around. Regressing them together may gives us a bias results, so it may be best to regress the 3 types separately. We also know from @prasetyo618 that at least the tax-price pass-through of the 3 types are all different.
 
-
-kwkwk
+We show the regression results in @tbl-3.
 
 ```{r}
-#| label: tbl-2
+#| label: tbl-3
 #| tbl-cap: Demand elasticity estimation for three kinds of traditional cigarettes
 
 ## Regressions
@@ -188,7 +238,7 @@ The elasticity of the traditional cigarettes is `r reg1[["coefficients"]][2]` wh
 However, to preserve degree of freedom, we can estimate all kinds in one regression, albeit using dummy variables for different kinds of traditional cigarettes. This technique will force all non-dummy variables to be assumed paralel. That is, we will force the three kinds of cigarettes to have the same elasticity.
 
 ```{r}
-#| label: tbl-3
+#| label: tbl-4
 #| tbl-cap: Demand elasticity estimation,pooled with dummy
 weks<-lm(qtrad~ptrad+y+kind,data=trad2)
 modelsummary(weks,stars=TRUE,coef_rename=c("ptrad"="own-price"))
@@ -212,15 +262,14 @@ $$
 or such:
 
 $$
-Q_{trad}=\frac{Y^{1.38}}{P_{trad}^{1.38}}\cdot e^{2.28}
+Q_{trad}=\frac{Y^{1.38}}{P_{trad}^{1.10}}\cdot e^{2.28}
 $$
 
-The first equation is actually make sense. The inelasticity of cigarette demands is quite well-known. Additionally, since the parameters are not statistically different from 0, it's even more inelastic.
+The first equation is actually make sense. The inelasticity of cigarette demands is quite well-known. Additionally, since the parameters are not statistically different from 0, it's even more inelastic. Moreover -0.52 corroborates with elasticity estimated by @RN from the consumer side.
 
-The second equation gives us a better statistical power, albeit a possibility of bias. Additionally, an elasticity larger than 1 suggests a relatively elastic goods, which may not the mainstream characteristics of a cigarettes.
+The second equation gives us a better statistical power thanks to a larger observation. However, @fig-3 and individual estimation [@tbl-3] may suggest a possibility of bias. Additionally, an elasticity larger than 1 suggests a relatively elastic goods, which may not the mainstream characteristics of a cigarettes.
 
 In short, the results may be inconclusive, but the technique can be used by DGCE in the presence of better availability of data.
-
 
 ### Tax-price pass through
 
@@ -233,7 +282,7 @@ $$
 The result of that regression is as follows:
 
 ```{r}
-#| label: tbl-4
+#| label: tbl-5
 #| tbl-cap: Tax-to-price pass through for three kinds of traditional cigarettes
 
 ## Regressions
@@ -263,30 +312,36 @@ modelsummary(tpp,stars = TRUE,coef_rename=c("ptrad"="own-price",
 
 This estimation result tells us a very strong impact of taxation on prices. That is, for each 1% increase in excise, it passes `r reg2[["coefficients"]][2]` % to the consumer via increased price. This estimation is arguable higher than @prasetyo618 which conducted a firm-level estimation.
 
-Likewise, we can improve the statistical power by pooling the three types with a quite restrictive assumption of a parralel marginal effect.
+However, if we look at individual kinds, We find that the estimation for SPM corroborates @prasetyo618 findings but the SKM is twice as much in our result compared to their estimation. THey find SKT to be lowest, around 0.153, but we find no difference from zero on SKT, which may suggests close similarity.
+
+As with the elaticity, we can improve the statistical power by pooling the three types with a quite restrictive assumption of a parralel marginal effect.
 
 ```{r}
 #| label: fig-4
-#| fig-cap: wkwkwkkw
+#| fig-cap: tax-price cross-sectional plot of traditional cigarettes.
 #| warning: false
 #| message: false
 ggplot(data=trad2,aes(y=ptrad,x=ctrad,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log excise",y="log price")
 ```
 
+Again, we find that SKT is different and perhaps needed to be read very carefully.
+
 ```{r}
-#| label: tbl-5
+#| label: tbl-6
 #| tbl-cap: tax-price passthrough estimation,pooled with dummy
 wuks<-lm(ptrad~ctrad+y+kind,data=trad2)
 modelsummary(wuks,stars=TRUE,coef_rename=c("ctrad"="own-excise"))
 ```
 
-This estimation result tells us a very strong impact of taxation on prices. That is, for each 1% increase in excise, it passes `r wuks[["coefficients"]][2]` % to the consumer via increased price. This estimation is arguable higher than @prasetyo618 which conducted a firm-level estimation.
+This estimation result tells us a very strong impact of taxation on prices. That is, for each 1% increase in excise, it passes `r wuks[["coefficients"]][2]` % to the consumer via increased price. But SKT may bias this parameter, as can be suggested by @fig-4.
 
 ### Revenue from price and from tax rate
 
+Lastly, we try to look at the impact of changing tax rate to increased revenue. Individual and aggregate estimation is shown in tbl-7.
+
 ```{r}
-#| label: tbl-6
+#| label: tbl-7
 #| tbl-cap: tax elasticity of revenue for three kinds of traditional cigarettes
 
 ## Regressions
@@ -314,7 +369,11 @@ modelsummary(rev,stars = TRUE,coef_rename=c("revtrad"="own-revenue",
                                             "cspm"="own-excise"))
 ```
 
-Same. lol.
+On aggregate, increasing advalorem equivalent of excise rate is associated with 0.6% increase in revenue at 10% level. Since the majority of tax revenue is contributed by SKM, we may expect the individual SKM estimation to be positive and significant, but it is not the case. 
+
+This weak association of increased tax revenue is actually corroborates @prasetyo618 which suggests firms to strategically lower their price to minimize their tax rate. Indeed, our data suggests a continous reduction of HJE:HTP, which suggests the firm to lower their retail prices.
+
+We also can use the appended individual data as our previous two estimation to improve our observation and strengthen statistical power. Results are in @tbl-8 and again, @fig-5 suggests a different behavior of SKT.
 
 ```{r}
 #| label: fig-5
@@ -326,13 +385,13 @@ ggplot(data=trad2,aes(y=rtrad,x=ctrad,color=kind,shape=kind))+geom_point(size=2)
 ```
 
 ```{r}
-#| label: tbl-7
+#| label: tbl-8
 #| tbl-cap: tax-price passthrough estimation,pooled with dummy
 wiks<-lm(rtrad~ctrad+y+kind,data=trad2)
 modelsummary(wiks,stars=TRUE,coef_rename=c("ctrad"="own-excise"))
 ```
 
-## Electric
+### Electric
 
 Unfortunately, analyzing electric cigarettes is heavily constrained by the data. Since 2022 is the only year with a complete observation of production, revenue and prices, we cannot use econometric methods. We can, however, construct a direct derivation of elasticity from a simple algebra.
 
@@ -368,10 +427,37 @@ $$
 
 We then input the data for $\ln Q_{el}$ and $\ln P_{el}$ which will gives us the parameter  $\nu=-0.54$.
 
+## Forcasting excise
 
+We return to our 4 questions as described in the @sec-introduction. Of course, these anwers comes with huge caveat, that our analysis is extremely limited by the data availability. So please be very careful in using this results.
 
+We have two possible parameters:
 
+$$
+Q_{trad}=\frac{Y^{0.52}}{P_{trad}^{0.48}}\cdot e^{25.75}
+$$
 
+or:
+
+$$
+Q_{trad}=\frac{Y^{1.38}}{P_{trad}^{1.10}}\cdot e^{2.28}
+$$
+
+The method to forecast the next year's excise is pretty much the same. DGCE can play around with the parameters, which one they deemed more appropriate, or just apply both and see which one makes more sense. 
+
+DGCE can try to play around with $Y$ and $P$ to make an estimation. That is, $Y$ is the predicted GDP per capita, and $P$ is the predicted price of cigarettes. DGCE can use any $P$ that they find plausible, but $P$ itself can be calculated using the passtrhough equation:
+
+$$
+P=T^{0.88} \cdot e^{1.94}
+$$
+
+which parameters derived from the traditional estimation in @tbl-5. This equation tells us how much the tobacco companies will assign their price given the tax rate $T$, which is under DGCE control. This $P$ then can be used to calculate $Q$.
+
+After $Q$ is acquired, DGCE can estimate their revenue $R$ to simply multiply Q with T:
+
+$$
+R=Q \times T
+$$
 
 ## Limitation & Suggestions
 
@@ -395,15 +481,17 @@ The main limitation is data. With the lack of annual data, we are limited to how
     
     - consequence is more severe: only 2022 observation can be used.
     
+These limitations prevents us from answering the cross-price elasticity between e-cigarettes and traditional cigarettes.
+
 Going forward, here are our recomendations regarding data for the DGCE:
 
-- have a robust datasets which can easily be extracted into familiar form.
+- have a robust datasets which can easily be extracted into familiar form (i.e., machine readable).
     
 - Keep collecting monthly data even though some HTP and HJE (or other regulations) do not change.
     
-- We propose a structure which can be extremely useful for future usage.
-    
-For further analysis, we can recommend the use of other datasets, such as Susenas or other household surveys. Unfortunately, there is no going around the lack of data. Even if we can utilise other data, we will still need HTP:HJE and annual revenue from the DGCE.
+For further analysis, we can recommend the use of other datasets, such as Susenas or other household surveys. Unfortunately, there is no going around the lack of data. Even if we can utilise other data, we will still need HTP:HJE and annual revenue from the DGCE. 
+
+Better yet, if we can have access to the same quality of data as @prasetyo618 from DGCE, we will surely able to output a much more robust analysis.
 
 ## References {.unnumbered}
 
