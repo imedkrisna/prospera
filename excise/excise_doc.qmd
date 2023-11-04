@@ -6,6 +6,7 @@ date: last-modified
 date-format: long
 bibliography: ref.bib
 abstract: "This report presents our analysis on mainly estimating elasticity and forecasting future excise and revenue for DGCE. We find that the elasticity of demand to be vary between -0.5 to -1.1. We also find a strong case for tax-price pass-through for SKM and SPM tobacco type. Our findings corroborates most literature on the Indonesian tobacco use. Unfortunately data limits how much and how robust the analysis can get. In particular, we find very little value of analysis on electric cigarettes, which maindly due to only one year datapoint available for study."
+abstract-title: "executive summary"
 format:
   html:
     code-fold: true
@@ -115,9 +116,9 @@ tradviz |>
   labs(y="advalorem equivalent (%)")
 ```
 
-The @fig-1 shows us some statistics on the data that we have on the traditional cigarettes. SKM and SPM are both machine-made and are associated with big firms, while SKT is handmade, often associated with small firms. SKM is considered Indonesian special and is highly popular among smokers and the largest source of excise revenue (see @fig1-1 and fig1-3).
+The @fig-1 shows us some statistics on the data that we have on the traditional cigarettes. SKM and SPM are both machine-made and are associated with big firms, while SKT is handmade, often associated with small firms. SKM is considered Indonesian special and is highly popular among smokers and the largest source of excise revenue (see @fig-1-1 and fig-1-3).
 
-@fig1-2 shows the price of each types which are increasing thanks to regulations. SKM and SPM are more expensive than SKT, partly due to a higher tax rate imposed on the machine-made cigarettes (see @fig1-4). This excise structure is design to protect small firms. The tax rate shown in @fig1-4 corroborates @prasetyo618 and is considered too low[^4].
+@fig-1-2 shows the price of each types which are increasing thanks to regulations. SKM and SPM are more expensive than SKT, partly due to a higher tax rate imposed on the machine-made cigarettes (see @fig-1-4). This excise structure is design to protect small firms. The tax rate shown in @fig-1-4 corroborates @prasetyo618 and is considered too low[^4].
 
 [^4]: WHO suggests any tax rate below 70% is deemed too small to reduce smoking [@prasetyo618]
 
