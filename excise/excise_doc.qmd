@@ -378,7 +378,7 @@ We also can use the appended individual data as our previous two estimation to i
 
 ```{r}
 #| label: fig-5
-#| fig-cap: wkwkwkkw
+#| fig-cap: excise vs revenue cross sections for 3 kinds of cigarettes
 #| warning: false
 #| message: false
 ggplot(data=trad2,aes(y=rtrad,x=ctrad,color=kind,shape=kind))+geom_point(size=2)+
