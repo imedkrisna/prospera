@@ -1,9 +1,9 @@
-library(tidyverse)
-library(readxl)
-library(writexl)
-library(zoo)
-library(patchwork)
-theme_set(theme_classic())
+library(tidyverse) ## for data wrangling
+library(readxl) ## Reading excel files
+library(writexl) ## Writing excel files
+library(zoo) ## Time series manipulation
+library(sjPlot) ## Saving regression into html
+theme_set(theme_classic()) ## Theming ggplot
 
 ## Lakukan setwd('') jika diperlukan
 
@@ -14,6 +14,8 @@ setwd("C:/github/prospera/excise/docs") ## Ubah dengan wd anda
 trd<-read_excel("cukai_use2.xlsx") ## Pastikan format filenya sama
 
 prices<-read_excel("trad_prices.xlsx") ## Pastikan format filenya sama
+
+pdb<-read_excel("ekon.xlsx") ## Pastikan format filenya sama
 
 ## Treating trd
 
@@ -44,18 +46,29 @@ trd2<-trd |>
   group_by(date,kind) |> 
   summarise(RT=sum(RT),QM=sum(QM))
 
-## Treating prices: making quarters
+## Quarterly for other two dataset
   
 prices$date<-as.yearqtr(paste(prices$tahun, " ", prices$quarter), "%Y %q")
+pdb$date<-as.yearqtr(paste(pdb$tahun, " ", pdb$quarter), "%Y %q")
 
 ## Combine 2 datasets
 
 trd3<-left_join(trd2,prices,by=join_by(date,kind))
+trd3<-left_join(trd3,pdb)
 
 trd3$CB<-trd3$RT/trd3$QM*1000
 trd3$CR<-trd3$CB/trd3$htp
 
 trd3 |> write_xlsx("final_data.xlsx")
+
+## Total all traditional cigarettes
+
+trdsum<-trd3 |>
+  group_by(date) |> 
+  summarise(htp=weighted.mean(htp,QM),RT=sum(RT),QM=sum(QM))
+trdsum<-left_join(trdsum,pdb)
+trdsum$CB<-trdsum$RT/trdsum$QM*1000
+trdsum$CR<-trdsum$CB/trdsum$htp
 
 ## Plots
 
@@ -64,29 +77,117 @@ trd3 |>
   labs(y="Kuantitas (miliar batang)",
        x="Kuartal",
        title = "Kuantitas produksi 3 jenis rokok",
-       caption="sumber: Bea Cukai")+
-  ggsave("produksi.png")
+       caption="sumber: Bea Cukai")
+ggsave("fig/produksi.png")
 trd3 |>
   ggplot(aes(x=date,y=htp,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
   labs(y="Harga (rupiah/batang)",
        x="Kuartal",
        title = "Harga Transaksi Pasar (HTP) 3 jenis rokok",
-       caption="sumber: Bea Cukai")+
-  ggsave("htp.png")
+       caption="sumber: Bea Cukai")
+ggsave("fig/htp.png")
 trd3 |>
   ggplot(aes(x=date,y=RT,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
   labs(y="Revenue (Triliun rupiah)",
        x="Kuartal",
        title = "Total tariff revenue 3 jenis rokok",
-       caption="sumber: Bea Cukai")+
-  ggsave("revenue.png")
+       caption="sumber: Bea Cukai")
+ggsave("fig/revenue.png")
 trd3 |>
   ggplot(aes(x=date,y=CR,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
   labs(y="Cukai (% equivalent)",
        x="Kuartal",
        title = "Advalorem equivalent cukai 3 jenis rokok",
-       caption="sumber: Bea Cukai")+
-  ggsave("advalorem.png")
+       caption="sumber: Bea Cukai")
+ggsave("fig/advalorem.png")
+
+## Logging everything
+
+ltrd3<-trd3 |>
+  mutate(RT=log(RT),
+         QM=log(QM),
+         htp=log(htp),
+         hje=log(hje),
+         CB=log(CB),
+         quarter=as.factor(quarter),
+         y=log(y))
+
+ltrdsum<-trdsum |>
+  mutate(htp=log(htp),
+         RT=log(RT),
+         QM=log(QM),
+         CB=log(CB),
+         quarter=as.factor(quarter),
+         y=log(y))
+  
 
 ## Regression
 
+## Quantity vs Price
+
+ggplot(data=ltrd3,aes(y=QM,x=htp,color=kind,shape=kind))+geom_point(size=2)+
+  stat_smooth(method = "lm")+labs(x="log price",y="log quantity")
+ggsave("fig/cs_elasticity.png")
+
+reg1sum<-lm(QM~htp+y+quarter,data=ltrdsum)
+reg1all<-lm(QM~htp+y+kind+quarter,data=ltrd3)
+reg1skm<-lm(QM~htp+y+quarter,data=subset(ltrd3,kind=="SKM"))
+reg1spm<-lm(QM~htp+y+quarter,data=subset(ltrd3,kind=="SPM"))
+reg1skt<-lm(QM~htp+y+quarter,data=subset(ltrd3,kind=="SKT"))
+
+tab_model(reg1sum,reg1all,reg1skm,reg1spm,reg1skt,
+          p.style="stars",collapse.se=T,show.ci = F,
+          dv.labels = c("Total","All","SKM","SPM","SKT"),
+          file="reg/elasticity.html")
+
+## Tax-price passthrough
+
+ggplot(data=ltrd3,aes(y=htp,x=CB,color=kind,shape=kind))+geom_point(size=2)+
+  stat_smooth(method = "lm")+labs(x="log excise",y="log price")
+ggsave("fig/cs_taxprice.png")
+
+reg2sum<-lm(htp~CB+y+quarter,data=ltrdsum)
+reg2all<-lm(htp~CB+y+kind+quarter,data=ltrd3)
+reg2skm<-lm(htp~CB+y+quarter,data=subset(ltrd3,kind=="SKM"))
+reg2spm<-lm(htp~CB+y+quarter,data=subset(ltrd3,kind=="SPM"))
+reg2skt<-lm(htp~CB+y+quarter,data=subset(ltrd3,kind=="SKT"))
+
+tab_model(reg2sum,reg2all,reg2skm,reg2spm,reg2skt,
+          p.style="stars",collapse.se=T,show.ci = F,
+          dv.labels = c("Total","All","SKM","SPM","SKT"),
+          file="reg/taxprice.html")
+
+## Tax-revenue
+
+ggplot(data=ltrd3,aes(y=RT,x=CB,color=kind,shape=kind))+geom_point(size=2)+
+  stat_smooth(method = "lm")+labs(x="log excise",y="log total revenue")
+ggsave("fig/cs_taxrev.png")
+
+ltrdsum$CB2<-ltrdsum$CB*ltrdsum$CB
+ltrd3$CB2<-ltrd3$CB*ltrd3$CB
+
+## Monotonic curve
+
+reg3sum<-lm(RT~CB+y+quarter,data=ltrdsum)
+reg3all<-lm(RT~CB+y+kind+quarter,data=ltrd3)
+reg3skm<-lm(RT~CB+y+quarter,data=subset(ltrd3,kind=="SKM"))
+reg3spm<-lm(RT~CB+y+quarter,data=subset(ltrd3,kind=="SPM"))
+reg3skt<-lm(RT~CB+y+quarter,data=subset(ltrd3,kind=="SKT"))
+
+tab_model(reg3sum,reg3all,reg3skm,reg3spm,reg3skt,
+          p.style="stars",collapse.se=T,show.ci = F,
+          dv.labels = c("Total","All","SKM","SPM","SKT"),
+          file="reg/taxrev.html")
+
+## Laffer curve
+
+reg3sum<-lm(RT~CB2+CB+y+quarter,data=ltrdsum)
+reg3all<-lm(RT~CB2+CB+y+kind+quarter,data=ltrd3)
+reg3skm<-lm(RT~CB2+CB+y+quarter,data=subset(ltrd3,kind=="SKM"))
+reg3spm<-lm(RT~CB2+CB+y+quarter,data=subset(ltrd3,kind=="SPM"))
+reg3skt<-lm(RT~CB2+CB+y+quarter,data=subset(ltrd3,kind=="SKT"))
+
+tab_model(reg3sum,reg3all,reg3skm,reg3spm,reg3skt,
+          p.style="stars",collapse.se=T,show.ci = F,
+          dv.labels = c("Total","All","SKM","SPM","SKT"),
+          file="reg/taxrev2.html")
