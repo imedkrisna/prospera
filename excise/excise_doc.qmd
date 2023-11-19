@@ -106,7 +106,7 @@ tradviz |>
   ggplot(aes(x=year,y=qtrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
   labs(y="Quantity (billion batang)")
 tradviz |>
-  ggplot(aes(x=year,y=ptrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
+  ggplot(aes(x=year,y=htp,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
   labs(y="Prices (IDR/batang)")
 tradviz |>
   ggplot(aes(x=year,y=rtrad,color=kind,linetype=kind))+geom_line(linewidth=1.1)+
@@ -201,7 +201,7 @@ First, we plot a cross-section of our $X$ and $Y$ variable, which can be seen in
 #| fig-cap: Quantity-price cross-sectional plot of traditional cigarettes.
 #| warning: false
 #| message: false
-ggplot(data=trad2,aes(y=qtrad,x=ptrad,color=kind,shape=kind))+geom_point(size=2)+
+ggplot(data=trad2,aes(y=qtrad,x=htp,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log price",y="log quantity")
 ```
 
@@ -214,10 +214,10 @@ We show the regression results in @tbl-3.
 #| tbl-cap: Demand elasticity estimation for three kinds of traditional cigarettes
 
 ## Regressions
-reg1<-lm(qtrad~ptrad+y,data=dat)
-reg1skm<-lm(qskm~pskm+y,data=trad)
-reg1skt<-lm(qskt~pskt+y,data=trad)
-reg1spm<-lm(qspm~pspm+y,data=trad)
+reg1<-lm(qtrad~htptrad+y,data=dat)
+reg1skm<-lm(qskm~htpskm+y,data=trad)
+reg1skt<-lm(qskt~htpskt+y,data=trad)
+reg1spm<-lm(qspm~htpspm+y,data=trad)
 
 ## Tabling
 
@@ -228,10 +228,10 @@ ela<- list(
   "SPM"  = reg1spm
 )
 
-modelsummary(ela,stars = TRUE,coef_rename=c("ptrad"="own-price",
-                                            "pskm"="own-price",
-                                            "pskt"="own-price",
-                                            "pspm"="own-price"))
+modelsummary(ela,stars = TRUE,coef_rename=c("htptrad"="own-price",
+                                            "htpskm"="own-price",
+                                            "htpskt"="own-price",
+                                            "htpspm"="own-price"))
 ```
 
 The elasticity of the traditional cigarettes is `r reg1[["coefficients"]][2]` which is the decrease in sales if prices go up by 1%. Meanwhile, `r reg1[["coefficients"]][3]`is the income-effect, that is, how much more sales go up if GDP per capita rises by 1%.
@@ -241,8 +241,8 @@ However, to preserve degree of freedom, we can estimate all kinds in one regress
 ```{r}
 #| label: tbl-4
 #| tbl-cap: Demand elasticity estimation,pooled with dummy
-weks<-lm(qtrad~ptrad+y+kind,data=trad2)
-modelsummary(weks,stars=TRUE,coef_rename=c("ptrad"="own-price"))
+weks<-lm(qtrad~htp+y+kind,data=trad2)
+modelsummary(weks,stars=TRUE,coef_rename=c("htp"="own-price"))
 ```
 
 As we can see, this approach improves degree of freedom and provides a more robust standard error. The elasticity of the traditional cigarettes is `r weks[["coefficients"]][2]` which is the decrease in sales if prices go up by 1%. Meanwhile, `r weks[["coefficients"]][3]`is the income-effect, that is, how much more sales go up if GDP per capita rises by 1%. However, judging from @fig-3, this estimation may be bias, especially since one of the type has a visual positive relationship.
@@ -257,13 +257,13 @@ Now that we have various estimators, it may takes a bit of a guesswork here. We 
 We can then propose an elasticity equation as such:
 
 $$
-Q_{trad}=\frac{Y^{0.52}}{P_{trad}^{0.48}}\cdot e^{25.75}
+Q_{trad}=\frac{Y^{0.52}}{P_{trad}^{0.49}}\cdot e^{25.74}
 $$
 
 or such:
 
 $$
-Q_{trad}=\frac{Y^{1.38}}{P_{trad}^{1.10}}\cdot e^{2.28}
+Q_{trad}=\frac{Y^{1.18}}{P_{trad}^{1.0006}}\cdot e^{2.88}
 $$
 
 The first equation is actually make sense. The inelasticity of cigarette demands is quite well-known. Additionally, since the parameters are not statistically different from 0, it's even more inelastic. Moreover -0.52 corroborates with elasticity estimated by @RN from the consumer side.
@@ -287,10 +287,10 @@ The result of that regression is as follows:
 #| tbl-cap: Tax-to-price pass through for three kinds of traditional cigarettes
 
 ## Regressions
-reg2<-lm(ptrad~ctrad,data=dat)
-reg2skm<-lm(pskm~cskm,data=trad)
-reg2skt<-lm(pskt~cskt,data=trad)
-reg2spm<-lm(pspm~cspm,data=trad)
+reg2<-lm(htptrad~ctrad,data=dat)
+reg2skm<-lm(htpskm~cskm,data=trad)
+reg2skt<-lm(htpskt~cskt,data=trad)
+reg2spm<-lm(htpspm~cspm,data=trad)
 
 ## Tabling
 
@@ -301,10 +301,10 @@ tpp<- list(
   "SPM"  = reg2spm
 )
 
-modelsummary(tpp,stars = TRUE,coef_rename=c("ptrad"="own-price",
-                                            "pskm"="own-price",
-                                            "pskt"="own-price",
-                                            "pspm"="own-price",
+modelsummary(tpp,stars = TRUE,coef_rename=c("htp"="own-price",
+                                            "htpskm"="own-price",
+                                            "htpskt"="own-price",
+                                            "htpspm"="own-price",
                                             "ctrad"="own-excise",
                                             "cskm"="own-excise",
                                             "cskt"="own-excise",
@@ -322,7 +322,7 @@ As with the elaticity, we can improve the statistical power by pooling the three
 #| fig-cap: tax-price cross-sectional plot of traditional cigarettes.
 #| warning: false
 #| message: false
-ggplot(data=trad2,aes(y=ptrad,x=ctrad,color=kind,shape=kind))+geom_point(size=2)+
+ggplot(data=trad2,aes(y=htp,x=ctrad,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log excise",y="log price")
 ```
 
@@ -331,7 +331,7 @@ Again, we find that SKT is different and perhaps needed to be read very carefull
 ```{r}
 #| label: tbl-6
 #| tbl-cap: tax-price passthrough estimation,pooled with dummy
-wuks<-lm(ptrad~ctrad+y+kind,data=trad2)
+wuks<-lm(htp~ctrad+y+kind,data=trad2)
 modelsummary(wuks,stars=TRUE,coef_rename=c("ctrad"="own-excise"))
 ```
 
