@@ -120,10 +120,14 @@ ltrdsum<-trdsum |>
          quarter=as.factor(quarter),
          y=log(y))
   
+## Final data note: 
+### Gunakan ltrd3 untuk regresi biasa/masing2 jenis rokok
+### Gunakan ltrdsum untuk regresi total (SKM+SPM+SKT)
 
 ## Regression
 
-## Quantity vs Price
+### Quantity vs Price
+#### Tabel ini sama dengan tabel 3 dan 4 di file report.pdf
 
 ggplot(data=ltrd3,aes(y=QM,x=htp,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log price",y="log quantity")
@@ -140,7 +144,8 @@ tab_model(reg1sum,reg1all,reg1skm,reg1spm,reg1skt,
           dv.labels = c("Total","All","SKM","SPM","SKT"),
           file="reg/elasticity.html")
 
-## Tax-price passthrough
+### Tax-price passthrough
+#### Tabel ini sama dengan tabel 5 dan 6 di report.pdf
 
 ggplot(data=ltrd3,aes(y=htp,x=CB,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log excise",y="log price")
@@ -157,7 +162,7 @@ tab_model(reg2sum,reg2all,reg2skm,reg2spm,reg2skt,
           dv.labels = c("Total","All","SKM","SPM","SKT"),
           file="reg/taxprice.html")
 
-## Tax-revenue
+### Tax-revenue
 
 ggplot(data=ltrd3,aes(y=RT,x=CB,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log excise",y="log total revenue")
@@ -166,7 +171,8 @@ ggsave("fig/cs_taxrev.png")
 ltrdsum$CB2<-ltrdsum$CB*ltrdsum$CB
 ltrd3$CB2<-ltrd3$CB*ltrd3$CB
 
-## Monotonic curve
+### Monotonic curve
+#### Tabel ini sama dengan tabel 7 dan 8 di report.pdf
 
 reg3sum<-lm(RT~CB+y+quarter,data=ltrdsum)
 reg3all<-lm(RT~CB+y+kind+quarter,data=ltrd3)
@@ -179,7 +185,9 @@ tab_model(reg3sum,reg3all,reg3skm,reg3spm,reg3skt,
           dv.labels = c("Total","All","SKM","SPM","SKT"),
           file="reg/taxrev.html")
 
-## Laffer curve
+### Laffer curve
+#### Yang ini menggunakan cukai kuadrat untuk memeriksa hubungan parabola dari
+#### cukai vs revenue.
 
 reg3sum<-lm(RT~CB2+CB+y+quarter,data=ltrdsum)
 reg3all<-lm(RT~CB2+CB+y+kind+quarter,data=ltrd3)

@@ -1,0 +1,18 @@
+---
+title: "Documentation"
+author: "Krisna Gupta"
+institute: "Prospera"
+date: last-modified
+date-format: long
+bibliography: ref.bib
+abstract: "aowkoawkoakw"
+abstract-title: "executive summary"
+format:
+  pdf:
+    documentclass: scrreprt
+    papersize: a4
+  docx:
+    toc: false
+---
+
+ha ha ha

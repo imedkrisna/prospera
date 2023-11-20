@@ -35,6 +35,14 @@ We must also answer this following question: How much is the cross-price substit
 
 While all of these questions are extremely important, we find the answer to not be straight-forward. Few literatures actually looking at this. But the main problem is the lack of good quality data in answering those questions, particularly on e-cigarettes.
 
+### 14 November 2023 meeting
+
+1. DGCE will provide a more granular data. I accomodate the new data on a separate submission. This version retains the use of annual data. However, the flow are largely the same. DGCE can compare regression tables from this version with the separate submission.
+
+2. A mistake on the use of price. This version fixes this by using HTP as prices.
+
+3. Indeed, e-cigs is a premature good to analyze. DGCE can use framework in this study for its future data.
+
 ## Literatures
 
 We rely on three papers for our desk investigation which is summarized in @tbl-1.
