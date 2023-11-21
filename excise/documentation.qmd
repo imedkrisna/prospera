@@ -11,8 +11,28 @@ format:
   pdf:
     documentclass: scrreprt
     papersize: a4
-  docx:
-    toc: false
 ---
 
-ha ha ha
+## Tentang dokumen
+
+Dokumen ini merupakan dokumentasi tentang file-file yang dibutuhkan untuk melakukan estimasi elastisitas dan tax-price passthrough. 
+
+### File input
+
+file-file input yang diperlukan adalah data. ada 3 file input yang diperlukan:
+
+-
+    
+-
+    
+-
+
+### File process
+
+File-file input tersebut diproses dengan software R dan RStudio.
+
+### File output
+
+Kode yang ada di file R memberikan output yang ada di dokumen "report.pdf".
+
+### File simulasi
