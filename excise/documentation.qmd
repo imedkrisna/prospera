@@ -15,24 +15,61 @@ format:
 
 ## Tentang dokumen
 
-Dokumen ini merupakan dokumentasi tentang file-file yang dibutuhkan untuk melakukan estimasi elastisitas dan tax-price passthrough. 
+Dokumen ini merupakan dokumentasi tentang file-file yang dibutuhkan untuk melakukan estimasi elastisitas dan tax-price passthrough dan untuk melakukan simulasi sederhana berdasarkan parameter yang didapatkan dari hasil regresi.
 
-### File input
+Dokumen ini bukan tentang keteknisan metode yang digunakan untuk estimasi. Pembaca dapat melihat "report.pdf" untuk mendapatkan informasi tentang teknik yang digunakan dalam estimasi ini.
+
+File-file yang ada di foler yang menyertai dokumen ini antara lain adalah:
+
+- fig
+- reg
+- cukai_use2.R
+- cukai_use2.xlsx
+- ekon.xlsx
+- simulation.xlsx
+- final_data.xlsx
+- simulation.xlsx
+- trad_prices.xlsx
+- report.pdf
+
+## File input
 
 file-file input yang diperlukan adalah data. ada 3 file input yang diperlukan:
 
--
+1. cukai_use2.xlsx, berisi data yang diberikan oleh Bea dan Cukai tentang total produksi pita cukai dan revenue dari pita tersebut secara total. Data diberikan bulanan dari 2018-2022.
     
--
+2. trad_prices.xlsx, berisi data HTP dan HTP:HJE. Data ini diberikan secara kuartal/triwulan dari 2018-2022. Sayangnya ada beberapa kuartal yang bolong.
     
--
+3. ekon.xlsx, berisi data kondisi ekonomi yaitu PDB riil (kuartal) dan populasi (tahunan) yang diambil dari BPS. PDB per kapita dihitung per kuartal namun kuartal di tahun yang sama menggunakan jumlah populasi yang sama.
 
-### File process
+File-file ini diperlukan untuk melakukan estimasi. Ketika mengupdate file-file ini, sebaiknya struktur data dan nama variabelnya tidak diubah. Jika ada struktur dan nama variabel yang diganti, maka file processing juga harus diedit.
 
-File-file input tersebut diproses dengan software R dan RStudio.
+## File processing
 
-### File output
+File-file input tersebut diproses dengan software R dan RStudio. File yang menjadi processing adalah "cukai_use2.R". Menggunakan file ini cukup simpel:
 
-Kode yang ada di file R memberikan output yang ada di dokumen "report.pdf".
+1. Letakkan semua file yang menyertai dokumen ini di dalam folder yang sama
 
-### File simulasi
+2. buka "cukai_use2.R" dengan menggunakan RStudio (file *.xlsx tidak ada yang perlu dibuka)
+
+3. blok semua (`ctrl+A` di windows), lalu tekan `ctrl+enter` untuk run.
+
+4. Cek file output "final_data.xlsx" untuk data final yang digunakan untuk regresi, folder "fig" untuk grafik, dan folder "reg" untuk parameter hasil estimasi.
+
+setiap ada update di file input, selama struktur database-nya sama, maka "cukai_use2.R" akan selalu bisa di-run dan hasil yang ada di "final_data.xlsx", "fig" dan "reg" akan berubah mengikuti data yang baru.
+
+## File output
+
+File output adalah "final_data.xlsx", "fig" (berisi grafik) dan "reg" (berisi parameter). Ketiga file ini akan berubah selama file input diupdate. Ada baiknya selalu backup hasil setiap kali akan melakukan run berdasarkan data baru.
+
+Folder "fig" berisi berbagai gambar dalam ".png" yang dapat digunakan untuk pelaporan. Sementara itu, folder "reg" berisi hasil regresi dalam bentuk ".html" yang dapat dibuka menggunakan browser (chrome, safari, firefox dll). Setelah dibuka dengan browser, tabel regresi dapat di-copy dan paste di dokumen pelaporan.
+
+## File simulasi
+
+File "simulasi.xlsx" berisi struktur excel yang digunakan untuk simulasi. Saat ini, file sudah disetting menggunakan parameter dari regresi seperti pada "report.pdf" dan variabel T dan Y menggunakan variabel tahun 2022. variabel HTP, Q dan TR dihitung menggunakan rumus sesuai dengan asumsi yang disematkan pada regresi _tax-price passtrough_ dan _demand elasticity_.
+
+Yang terjadi adalah, HTP pada file tersebut diestimasi menggunakan asumsi pada _tax-price passthrough_, lalu HTP dari sana digunakan untuk estimasi _demand elasticity_. Quantity yang didapat dari _demand elasticity_ digunakan untuk menghitung proyeksi revenue.
+
+## File tambahan
+
+File-file tambahan adalah file "report.pdf", File ini dapat digunakan sebagai acuan untuk menyusun laporan tahunan / kuartalan oleh Bea Cukai.
