@@ -127,7 +127,7 @@ ltrdsum<-trdsum |>
 ## Regression
 
 ### Quantity vs Price
-#### Tabel ini sama dengan tabel 3 dan 4 di file report.pdf
+#### Tabel ini sama dengan tabel 5.1 dan 5.2 di file report.pdf
 
 ggplot(data=ltrd3,aes(y=QM,x=htp,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log price",y="log quantity")
@@ -145,7 +145,7 @@ tab_model(reg1sum,reg1all,reg1skm,reg1spm,reg1skt,
           file="reg/elasticity.html")
 
 ### Tax-price passthrough
-#### Tabel ini sama dengan tabel 5 dan 6 di report.pdf
+#### Tabel ini sama dengan tabel 5.4 dan 5.5 di report.pdf
 
 ggplot(data=ltrd3,aes(y=htp,x=CB,color=kind,shape=kind))+geom_point(size=2)+
   stat_smooth(method = "lm")+labs(x="log excise",y="log price")
@@ -172,7 +172,7 @@ ltrdsum$CB2<-ltrdsum$CB*ltrdsum$CB
 ltrd3$CB2<-ltrd3$CB*ltrd3$CB
 
 ### Monotonic curve
-#### Tabel ini sama dengan tabel 7 dan 8 di report.pdf
+#### Tabel ini sama dengan tabel 5.6 dan 5.7 di report.pdf
 
 reg3sum<-lm(RT~CB+y+quarter,data=ltrdsum)
 reg3all<-lm(RT~CB+y+kind+quarter,data=ltrd3)

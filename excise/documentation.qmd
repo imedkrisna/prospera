@@ -5,7 +5,7 @@ institute: "Prospera"
 date: last-modified
 date-format: long
 bibliography: ref.bib
-abstract: "aowkoawkoakw"
+abstract: "Ini adalah panduan menggunakan program R dan simulasi excel"
 abstract-title: "executive summary"
 format:
   pdf:
